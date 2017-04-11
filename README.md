@@ -1,8 +1,12 @@
-# [Racer](https://atom.io/packages/racer)
+# [Racer](https://atom.io/packages/racer-v2)
 
 > Providing intelligent code completion and "find definition" for Rust via [Racer](https://github.com/phildawes/racer).
 
+**Note**: This is a fork of [Ebudenko's racer plugin](https://github.com/edubkendo/atom-racer). His repo
+was unmaintained, and I merged some pull requests that I wanted into my fork.
+
 ![A screenshot of racer at work](https://cloud.githubusercontent.com/assets/1395968/2886329/0396e8a4-d4e2-11e3-9813-f6697a01d959.gif)
+
 
 ## Installation
 
@@ -36,24 +40,3 @@ Your configuration is probably wrong:
 * The path to Racer has to point to the *Racer binary executable* (this is **NOT a directory** we request here).
 * The Rustc source has to point to the *base directory of the source code*.
 * The Atom package *language-rust* is installed and active.
-
-### My project tree (tree-view) flickers:
-We use temporary files to communicate with racer and need to place them along with your source files.
-
-We shaped them as `._racertmpXXXXX` because the `._*` files are ignored by default by Atom.
-
-Change your configuration so that the `tree-view` package follows Atom ignore rules!
-* Open `Settings > Packages`
-* Search the core package called `tree-view`, click `Settings`
-* Check the box called `Hide Ignored Names`
-
-Note: by the way, you can control what is ignored in the main Atom settings top panel.
-* Open `Settings > Settings` (the first tab)
-* Search the "core settings" section for the `Ignored Names` field
-* check that it's either empty (default), or contains `._*`, or add yourself a `._racertmp*` entry if you already changed the settings.
-
-### Why do you constantly put (and remove) temporary files in my project:
-We use temporary files to communicate with racer and need to place them along with your source files so that racer:
-* locates your project,
-* provides completion for your whole projects code,
-* locates your cargo file if it exists and use it to provide completion for your dependencies.
