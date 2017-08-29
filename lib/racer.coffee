@@ -80,7 +80,7 @@ module.exports =
         pane.activateItem(textEditor)
         textEditor.setCursorBufferPosition([def.line-1, def.column])
       else
-        newEditorPosition = atom.config.get 'racer.show'
+        newEditorPosition = atom.config.get 'racer-v2.show'
         options = {initialLine: def.line-1, initialColumn: def.column}
         options.split = newEditorPosition.toLowerCase() if newEditorPosition != 'New'
         atom.workspace.open(def.filePath, options).then((te) =>
