@@ -15,6 +15,7 @@ class RacerProvider
   getSuggestions: ({editor, bufferPosition, prefix}) ->
     return new Promise (resolve) =>
       return resolve() unless prefix?.length
+      return resolve() unless prefix?[prefix?.length-1] != ';'
       return resolve() unless editor?
       buffer = editor.getBuffer()
       return resolve() unless buffer?
